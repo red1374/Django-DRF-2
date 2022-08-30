@@ -1,18 +1,8 @@
-import os
-import json
-
 from django.contrib.auth.hashers import make_password
 from django.core.management.base import BaseCommand
 
 from appuser.models import AppUser
-
-JSON_PATH = 'todo\json'
-
-
-def load_from_json(file_name):
-    path_to_file = os.path.join(JSON_PATH, file_name + '.json')
-    with open(path_to_file, 'r') as infile:
-        return json.load(infile)
+from todo.utils import load_from_json
 
 
 class Command(BaseCommand):

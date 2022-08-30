@@ -1,6 +1,8 @@
 from django.db.models import Q
 from rest_framework import status
+from rest_framework.decorators import api_view, renderer_classes
 from rest_framework.pagination import LimitOffsetPagination
+from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
@@ -8,6 +10,7 @@ from rest_framework.viewsets import ModelViewSet
 from note.filters import ToDoDateFilter
 from note.models import Project, ToDo
 from note.serializers import ProjectModelSerializer, ToDoModelSerializer
+from todo.utils import load_from_json
 
 
 class ProjectLimitOffsetPagination(LimitOffsetPagination):
@@ -50,3 +53,11 @@ class ToDoModelViewSet(ModelViewSet):
             return ToDo.objects.filter(Q(project__name__iregex=project_name))
 
         return ToDo.objects.all()
+
+
+@api_view(['GET'])
+@renderer_classes([JSONRenderer])
+def get_menu(request, *args, **kwargs):
+    json = load_from_json(kwargs['name'])
+
+    return Response(json)

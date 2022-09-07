@@ -1,4 +1,7 @@
+import json
+
 from django.db.models import Q
+from django.http import HttpResponse
 from rest_framework import status
 from rest_framework.decorators import api_view, renderer_classes, permission_classes
 from rest_framework.pagination import LimitOffsetPagination
@@ -72,3 +75,20 @@ def get_menu(request, *args, **kwargs):
     json = load_from_json(kwargs['name'])
 
     return Response(json)
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+@renderer_classes([JSONRenderer])
+def get_data(request, *args, **kwargs):
+    if kwargs['name'] == 'user':
+        data = dict(
+            id=request.user.id,
+            username=request.user.username,
+            first_name=request.user.first_name,
+            last_name=request.user.last_name,
+            email=request.user.email,
+        )
+        return HttpResponse(json.dumps(data), content_type="application/json")
+
+    return Response([])

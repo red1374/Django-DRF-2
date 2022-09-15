@@ -13,10 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.urls import path, include, re_path
 
 from django.contrib import admin
 from django.urls import path
+from django.views.generic import TemplateView
 from graphene_django.views import GraphQLView
 from rest_framework import permissions
 from rest_framework.routers import DefaultRouter
@@ -66,4 +68,7 @@ urlpatterns = [
     path('redoc/', schema_view.with_ui('redoc')),
 
     path('graphql/', GraphQLView.as_view(graphiql=True)),
+    path('api/users_list/', AppUserCustomViewSet.as_view({'get': 'list'})),
+
+    path('', TemplateView.as_view(template_name='index.html'))
 ]

@@ -20,6 +20,7 @@ from graphene_django import DjangoObjectType
 #     def resolve_goodbye(root, info):
 #         return 'See ya!'
 
+
 class ToDoType(DjangoObjectType):
     class Meta:
         model = ToDo
@@ -110,11 +111,16 @@ class Query(ObjectType):
     projects_list = graphene.List(ProjectType)
     users_list = graphene.List(UserType)
     project_by_name = graphene.List(ProjectType, name=graphene.String(required=False))
+    todo_active_list = graphene.List(ToDoType)
+    todo_by_project_name = graphene.List(ToDoType, project_name=graphene.String(required=False))
 
     def resolve_todo_list(root, info):
         return ToDo.objects.all()
 
-    def resolve_project_list(root, info):
+    def resolve_todo_active_list(root, info):
+        return ToDo.objects.filter(is_active=True)
+
+    def resolve_projects_list(root, info):
         return Project.objects.all()
 
     def resolve_users_list(root, info):
@@ -122,8 +128,13 @@ class Query(ObjectType):
 
     def resolve_project_by_name(root, info, name):
         if name:
-            return Project.objects.filter(name__contains=name)
+            return Project.objects.filter(name__iregex=name)
         return Project.objects.all()
+
+    def resolve_todo_by_project_name(root, info, project_name):
+        if project_name:
+            return ToDo.objects.filter(project__name__iregex=project_name)
+        return ToDo.objects.all()
 
 
 schema = Schema(query=Query, mutation=Mutations)

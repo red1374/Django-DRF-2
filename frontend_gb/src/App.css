@@ -46,3 +46,6 @@
 .input-error{
   border-color: #aa0000;
 }
+.form-floating>.form-textarea{height: 100px}
+.form-floating>.form-select[multiple]{height: 100px}
+.w-90{width: 90%}

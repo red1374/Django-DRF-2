@@ -1,7 +1,9 @@
 import json
 import os
 
-JSON_PATH = 'todo\json'
+from todo.settings import BASE_DIR
+
+JSON_PATH = BASE_DIR / "todo/json"
 
 
 def load_from_json(file_name):

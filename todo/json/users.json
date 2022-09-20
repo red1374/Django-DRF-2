@@ -1,25 +1,25 @@
 [{
     "username": "user1",
-    "first_name": "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ 1",
-    "last_name": "",
+    "first_name": "Пользователь 1",
+    "last_name": "Фамилия 1",
 	"email": "user1@pleshakov.org",
     "password": "geekbrains"
 },{
     "username": "user2",
-    "first_name": "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ 2",
-    "last_name": "",
+    "first_name": "Пользователь 2",
+    "last_name": "Фамилия 2",
 	"email": "user2@pleshakov.org",
     "password": "2222"
 },{
     "username": "user3",
-    "first_name": "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ 3",
-    "last_name": "",
+    "first_name": "Пользователь 3",
+    "last_name": "Фамилия 3",
 	"email": "user3@pleshakov.org",
     "password": "33333"
 },{
     "username": "user4",
-    "first_name": "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ 4",
-    "last_name": "",
+    "first_name": "Пользователь 4",
+    "last_name": "Фамилия 4",
 	"email": "user4@pleshakov.org",
     "password": "4444"
 }]

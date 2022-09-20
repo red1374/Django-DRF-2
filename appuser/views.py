@@ -4,7 +4,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework.renderers import JSONRenderer, BrowsableAPIRenderer
 
 from .models import AppUser
-from .serializers import AppUserModelSerializer
+from .serializers import AppUserModelSerializer, AppUserModelSerializerFull
 
 
 class AppUserLimitOffsetPagination(LimitOffsetPagination):
@@ -18,3 +18,9 @@ class AppUserCustomViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, mix
     renderer_classes = [JSONRenderer, BrowsableAPIRenderer]
     pagination_class = AppUserLimitOffsetPagination
     permission_classes = [AllowAny]
+
+    def get_serializer_class(self):
+        if self.request.version == 'v1':
+            return AppUserModelSerializer
+
+        return AppUserModelSerializerFull

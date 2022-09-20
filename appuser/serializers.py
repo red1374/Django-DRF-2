@@ -6,6 +6,7 @@ class AppUserModelSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = AppUser
         fields = ('id', 'username', 'first_name', 'last_name', 'email')
+        # fields = '__all__'
 
 
 class AppUserModelSerializerFull(HyperlinkedModelSerializer):

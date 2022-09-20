@@ -36,7 +36,7 @@ class ProjectModelViewSet(ModelViewSet):
     serializer_class = ProjectModelSerializer
     pagination_class = ProjectLimitOffsetPagination
     # filterset_class = ProjectFilter
-    permission_classes = [AllowAny]
+    # permission_classes = [AllowAny]
 
     def get_queryset(self):
         name = self.request.query_params.get('name', '')
@@ -50,7 +50,7 @@ class ToDoModelViewSet(ModelViewSet):
     serializer_class = ToDoModelSerializer
     pagination_class = ToDOLimitOffsetPagination
     filterset_class = ToDoDateFilter
-    permission_classes = [AllowAny]
+    # permission_classes = [AllowAny]
 
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()
@@ -62,9 +62,9 @@ class ToDoModelViewSet(ModelViewSet):
     def get_queryset(self):
         project_name = self.request.query_params.get('project', '')
         if project_name:
-            return ToDo.objects.filter(Q(project__name__iregex=project_name))
+            return ToDo.objects.filter(project__name__iregex=project_name, is_active=True)
 
-        return ToDo.objects.all()
+        return ToDo.objects.filter(is_active=True)
 
 
 @api_view(['GET'])

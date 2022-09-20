@@ -14,7 +14,7 @@ class Project(models.Model):
 
 
 class ToDo(models.Model):
-    project = models.OneToOneField(Project, on_delete=models.CASCADE)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
     text = models.TextField(max_length=512)
     date_create = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     date_update = models.DateTimeField(verbose_name='Дата обновления', auto_now=True)

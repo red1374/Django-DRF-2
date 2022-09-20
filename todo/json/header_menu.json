@@ -1,17 +1,17 @@
 [{
-    "title": "Главная",
+    "title": "Р“Р»Р°РІРЅР°СЏ",
     "href": "",
     "class": "link-dark"
 },{
-    "title": "Пользователи",
+    "title": "РџРѕР»СЊР·РѕРІР°С‚РµР»Рё",
     "href": "/users",
     "class": "link-dark"
 },{
-    "title": "Проекты",
+    "title": "РџСЂРѕРµРєС‚С‹",
     "href": "/projects",
     "class": "link-dark"
 },{
-    "title": "Заметки",
+    "title": "Р—Р°РјРµС‚РєРё",
     "href": "/notes",
     "class": "link-dark"
 }]

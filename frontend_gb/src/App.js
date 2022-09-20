@@ -19,7 +19,7 @@ import ProjectForm from "./components/ProjectForm";
 import ProjectEditForm from "./components/ProjectEditForm";
 
 class App extends React.Component {
-    SITE_URL = 'http://127.0.0.1:8000';
+    SITE_URL = 'http://127.0.0.1:8080';
 
     constructor(props) {
         super(props);

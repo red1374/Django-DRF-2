@@ -22,7 +22,7 @@ const UsersList = ({users}) => {
                     </tr>
                 </thead>
                 <tbody>
-                {users.map((user) => <UserItem user={user} />)}
+                {users.map((user, i) => <UserItem user={user} key={i} />)}
                 </tbody>
             </table>
         </div>

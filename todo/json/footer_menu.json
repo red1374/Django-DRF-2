@@ -1,0 +1,17 @@
+[{
+    "title": "Главная",
+    "href": "",
+    "class": "text-muted"
+},{
+    "title": "Пользователи",
+    "href": "/users",
+    "class": "text-muted"
+},{
+    "title": "Проекты",
+    "href": "/projects",
+    "class": "text-muted"
+},{
+    "title": "Заметки",
+    "href": "/notes",
+    "class": "text-muted"
+}]

@@ -20,7 +20,7 @@ from django.urls import path
 from rest_framework.routers import DefaultRouter
 
 from appuser.views import AppUserCustomViewSet
-from note.views import ProjectModelViewSet, ToDoModelViewSet, get_menu
+from note.views import ProjectModelViewSet, ToDoModelViewSet, get_menu, get_data
 
 from rest_framework.authtoken import views
 
@@ -35,6 +35,7 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include(router.urls)),
     path('menu/<str:name>/', get_menu),
+    path('get/<str:name>/', get_data),
 
     path('api-token-auth/', views.obtain_auth_token)
 ]
